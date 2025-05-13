@@ -1,0 +1,156 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyNrAwN89LPEWV04LU1hU4v7",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/I-Git5G/python-learnings/blob/main/Pandas%20cheat%20sheet\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "Yy2l5FSEL3hQ"
+      },
+      "outputs": [],
+      "source": [
+        "data  i/o\n",
+        "#csv\n",
+        "#reading\n",
+        "pd.read_csv('filename.csv')\n",
+        "#writing\n",
+        "df.to_csv('output.csv',index=false)\n",
+        "#excel\n",
+        "pd.read_excel('filename.xlsx')\n",
+        "#writing\n",
+        "df.to_excel('output.xlsx',index=false)\n",
+        "#json\n",
+        "pd.read_json('filename.json')\n",
+        "#writing\n",
+        "df.to_json('output.json')"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#data exploration\n",
+        "df.head()#shows first 5 rows\n",
+        "df.tail()#shows last 5 rows\n",
+        "df.describe()#summaery statistics\n",
+        "df.dtypes#shows the types\n",
+        "df.columns#shows column name\n",
+        "df.isnull().sum() #to check missing value"
+      ],
+      "metadata": {
+        "id": "QNr0j0cnPQkd"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#data selection\n",
+        "df['column_name']#select a column\n",
+        "df[['col1','col2']]#select multiple column\n",
+        "df.iloc[2:5]#select row by index\n",
+        "df[df['column_name']>10]#select rows bycondition"
+      ],
+      "metadata": {
+        "id": "wyN_eGz3RGZe"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#data manipulation\n",
+        "df['new_col']=df['col1']+df['col2']#add a new column\n",
+        "df.drop(['col1','col2'],axis=1)#drop a column\n",
+        "df.rename(columns={'old_name':'new_name'})#rename column\n",
+        "df['column_name']=df['column_name'].replace(old_value,new_value)#replace value\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 106
+        },
+        "id": "F90OD6dITQIk",
+        "outputId": "19aa4e90-18bc-445a-e351-7b34c854cf8a"
+      },
+      "execution_count": 1,
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "SyntaxError",
+          "evalue": "incomplete input (<ipython-input-1-0726a5138db4>, line 4)",
+          "traceback": [
+            "\u001b[0;36m  File \u001b[0;32m\"<ipython-input-1-0726a5138db4>\"\u001b[0;36m, line \u001b[0;32m4\u001b[0m\n\u001b[0;31m    df.rename(columns=\u001b[0m\n\u001b[0m                      ^\u001b[0m\n\u001b[0;31mSyntaxError\u001b[0m\u001b[0;31m:\u001b[0m incomplete input\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#grouping and aggregation\n",
+        "df.groupby('column_name')#group data\n",
+        "grouped['col1'].sum()#aggregate data\n",
+        "df.groupby(['col1','col2']).mean()#multi level grouping\n",
+        "df.groupby('column_name').agg({'col1':'sum','col2':'mean'})#multiple aggregation"
+      ],
+      "metadata": {
+        "id": "dIU70qtTWlcd"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#sorting\n",
+        "df.sort_values('column_name',ascending=true)#sort by column\n",
+        "df.sort_values(['col1','col2'],ascending=[True,False])#multiple sorting (column)"
+      ],
+      "metadata": {
+        "id": "32Gdl4qFnC84"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#missing data handling\n",
+        "df('column_name').fillna(value,inplace=True)#fill missing value\n",
+        "df.dropna(inplace=True)#drop rows with missing values"
+      ],
+      "metadata": {
+        "id": "fN2HnYe4oNwy"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
